@@ -10,10 +10,6 @@
 
 static const int RX_BUF_SIZE = 2024;
 
-char arr1[] = "Latt";
-char arr2[] = "Long";
-char arr3[] = "           ";
-char arr4[] = "            ";
 
 // for UART 0
 // Displays data to the serial monitor
@@ -73,16 +69,20 @@ static void rx_task(void *arg)
     int comma_count = 0;
 
     double lat, longi;
+    char latitude[100] = "empty";
+    char longitude[100] = "empty";
+    
     char *lat_ptr;
     char *longi_ptr;
 
-    char latitude[100] = "empty";
+    
     int lat_start_pos = 0;
     int lat_len = 0;
 
-    char longitude[100] = "empty";
+    
     int long_start_pos = 0;
     int long_len = 0;
+
 
     while (1)
     {
@@ -106,6 +106,7 @@ static void rx_task(void *arg)
                 
                 // logic to extract the latitude & longitude
 
+                
                 for (int i = 0; str2[i] != '\n'; i++)
                 {
                     if (str2[i] == ',')
@@ -129,13 +130,16 @@ static void rx_task(void *arg)
                         }
                     }
                 }
-                strncpy(latitude, str2 + (lat_start_pos), lat_len);
-                strncpy(longitude, str2 + (long_start_pos), long_len);
+                
+                
+                strncpy(latitude, p + (lat_start_pos), lat_len);
+                strncpy(longitude, p + (long_start_pos), long_len);
                 printf("\nlatitude = %s \nlongitude = %s\n\n", latitude, longitude);
 
                 lat = strtod(latitude, &lat_ptr);
                 longi = strtod(longitude, &longi_ptr);
                 printf("\nlatitude = %f \nlongitude = %f\n\n", lat, longi);
+
             }
         }
         vTaskDelay(100 / portTICK_PERIOD_MS);
