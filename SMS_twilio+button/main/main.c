@@ -24,8 +24,8 @@
 static const char *TAG = "HTTP_CLIENT";
 
 // Your Account SID and Auth Token from twilio.com/console
-char account_sid[] = "AC5fc2df299bdf049b71821061df8de8e6";
-char auth_token[] = "be137732ce70ef1266ca2c73577c3a98";
+char account_sid[] = "";
+char auth_token[] = "";
 char recipient_num[] = "+919167791254";
 char sender_num[] = "+12177591518";
 
