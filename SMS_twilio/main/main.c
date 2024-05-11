@@ -26,7 +26,7 @@ char sender_num[] = "";
 
 
 
-char message[] = "Hello This is a test message";
+char message[] =  "http://maps.google.co.in/maps?q=51.917168,-0.227051";
 
 void twilio_send_sms(void *pvParameters)
 {
