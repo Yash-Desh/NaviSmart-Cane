@@ -72,7 +72,7 @@ char auth_token[] = "Your_auth_token";
 char recipient_num[] = "+Your_recipient_num";
 char sender_num[] = "+Your_sender_num";
 
-char message[] = " http://maps.google.co.uk/maps?q=51.917168,-0.227051";
+char message[] = " THE USER HAS SENT A SOS MESSAGE. PLEASE VISIT THE APP FOR MORE INFO ";
 
 void twilio_send_sms()
 {
